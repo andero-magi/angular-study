@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+  <!--- ng-app - use angulars directives in this element --->
+  <div 
+    ng-app="" 
+    ng-init="
+        quantity=1; 
+        cost=4; 
+        myCol='blue';
+        firstName='Julie';
+        lastName='Woolie';
+
+        person = {
+          firstName:'Julie',
+          lastName:'Woolie'
+        };
+
+        points = [1, 15, 18, 5, 37];
+    "
+
+  >
+    <h2>expr</h2>
+    <p>Evaluates code inside the { { and } }</p>
+    <p>Expresion: {{ 5 + 5 }}</p>
+    <p>Total in Euros: {{quantity * cost}}</p>
+    <input style="background-color: {{myCol}};" ng-model="myCol">
+
+    <h2>ng bind</h2>
+
+    <p>The name is <span ng-bind="firstName + ' ' + lastName"></span></p>
+    <p>The name is <span ng-bind="person.firstName + ' ' + person.lastName"></span></p>
+
+    <h3>array</h3>
+    <p>neljas: {{points[3]}}</p>
+    <p>neljas: <span ng-bind="points[3]"></span></p>
+
+  
+    
+  </div>
+</body>
+</html>

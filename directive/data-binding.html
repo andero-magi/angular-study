@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div data-ng-app="" data-ng-init="quantity=1; price=5;">
+        <h2>Calculator</h2>
+
+        Quantity: <input type="number" value="{{quantity}}" ng-model="quantity">
+        Price: <input type="number" value="{{price}}" ng-model="price">
+
+        <p><b>Total Price: {{quantity * price}}</b></p>
+    </div>
+</body>
+</html>
