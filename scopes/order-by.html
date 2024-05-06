@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <h1>People</h1>
+
+    <ul>
+        <li ng-repeat="x in people | orderBy:'-country':'reverse'">{{x.name + ', ' + x.country}}</li>
+    </ul>
+
+    <p>{{num | currency}}</p>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.controller('myCtrl', $scope => {
+            $scope.num = 10.345453
+            $scope.people = [
+                {name:'Jani', country:'Norway'}, 
+                {name:'Hege', country:'Sweden'}, 
+                {name:'Kai',  country:'Denmark'}, 
+                {name:'Hege', country:'Sweden'}, 
+                {name:'Adolph', country:'Sweden'}, 
+                {name:'Foo', country:'Bar'}, 
+                {name:'ASd', country:'fgh'}, 
+                {name:'David', country:'Judea'}
+            ]
+        })
+    </script>
+</body>
+</html>

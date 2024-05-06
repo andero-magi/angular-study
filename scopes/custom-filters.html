@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+
+    <p>Write names ordered</p>
+    <p>
+        <input type="text" ng-model="search">
+
+        <ul>
+            <li ng-repeat="name in people | filter:search">{{name | myFormat}}</li>
+        </ul>
+    </p>
+
+    <script>
+        let app = angular.module('myApp', [])
+
+        app.filter('myFormat', () => {
+            let state = 2;
+            return x => {
+                let c, txt = ""
+
+                if (state == 2) {
+                    state = 3
+                } else {
+                    state = 2
+                }
+
+                for (let i = 0; i < x.length; i++) {
+                    c = x[i]
+
+                    if ((i + 1) % state == 0) {
+                        txt += c.toLowerCase()
+                    } else {
+                        txt += c.toUpperCase()
+                    }
+                }
+
+                return txt
+            }
+        })
+
+        app.controller('myCtrl', $scope => {
+            $scope.people = ["Jani", "Carl", "Margareth", "Joe", "Gustav", 'Helen', "Henri"]
+        })
+    </script>
+</body>
+</html>
